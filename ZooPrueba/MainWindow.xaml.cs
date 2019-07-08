@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.SqlClient;
+using System.Data;
+using System.Configuration;
 
 namespace ZooPrueba
 {
@@ -20,9 +23,12 @@ namespace ZooPrueba
     /// </summary>
     public partial class MainWindow : Window
     {
+        SqlConnection sqlconnecction;
         public MainWindow()
         {
             InitializeComponent();
+            string connectionString = ConfigurationManager.ConnectionStrings["ZooPrueba.Properties.Settings.ZoologicoConnectionString"].ConnectionString;
+            sqlconnecction = new SqlConnection(connectionString);
         }
     }
 }
